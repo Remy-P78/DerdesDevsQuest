@@ -112,8 +112,8 @@ const sword = new Weapon("sword", 20);
 const axe = new Weapon("axe", 15);
 const spear = new Weapon("spear", 30);
 
-const sangolu = new Hero("Sangolu", 500, 1000);
-const cogema = new Hero("Cogema", 100, 1000);
+const sangolu = new Hero("Sangolu", 500, 1500);
+const cogema = new Hero("Cogema", 600, 1200);
 const britneySpear = new HeroSpear("BritneySpear", 5, 100, spear);
 const ajax = new HeroAxe("Ajax", 25, 100, axe);
 const handSword = new HeroSword("handSword", 20, 100, sword);
@@ -129,16 +129,10 @@ const choix1 = document.getElementById("choix1") as HTMLSelectElement;
 const choix2 = document.getElementById("choix2") as HTMLSelectElement;
 console.log(choix1.value);
 
-// if (namePlayer1) {
-//   const fighter1 = getHeroFromChoice(choix1.value);
-// }
-// if (namePlayer2) {
-//   const fighter2 = getHeroFromChoice(choix2.value);
-// }
-
 function getHeroFromChoice(choice: string): Hero {
   switch (choice) {
     case "sangolu":
+      console.log("sangolu");
       return sangolu;
     case "cogema":
       return cogema;
@@ -153,17 +147,16 @@ function getHeroFromChoice(choice: string): Hero {
   }
 }
 
-
 function letsGetRadisToRumble(fighter1: Hero, fighter2: Hero) {
   
   let round: number = 1;
   
-  // if (namePlayer2) {
-  //   namePlayer2.innerText = fighter2.getName();
-  // }
-  // if (namePlayer1) {
-  //   namePlayer1.innerText = fighter1.getName();
-  // }
+  if (namePlayer2) {
+    namePlayer2.innerText = fighter2.getName();
+  }
+  if (namePlayer1) {
+    namePlayer1.innerText = fighter1.getName();
+  }
 
   
   if (panneauInfo)
@@ -203,18 +196,17 @@ function letsGetRadisToRumble(fighter1: Hero, fighter2: Hero) {
   }
 }
 
-if (namePlayer1 && namePlayer2 &&buttonFight ) {
+buttonFight.addEventListener("click", () => {
+if (namePlayer1 && namePlayer2 && buttonFight ) {
   const fighter1 = getHeroFromChoice(choix1.value);
   const fighter2 = getHeroFromChoice(choix2.value);
-  buttonFight.addEventListener("click", () => {
+  
     letsGetRadisToRumble(fighter1, fighter2);
-  });
-}
-// letsGetRadisToRumble(britneySpear, handSword);
+  }});
 
-// *****************************************************************
-// Bonus 2 Interface Graphique
-// *****************************************************************
+
+
+
 
 
 

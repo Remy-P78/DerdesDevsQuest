@@ -6,7 +6,7 @@ Tu vas devoir trouver les informations suivantes et les tester au fur et à mesu
 ## Level 1
 
 - Quels sont les différents type primitives de données en TypeScript ? 
-```
+
 bigint => créée en ajoutant un n à la fin d'un entier
 boolean
 null
@@ -14,7 +14,6 @@ number
 string
 symbol => une donnée unique et immutable.
 undefined
-```
 
 - Comment typer un tableau ? 
 
@@ -35,12 +34,7 @@ console.log(mixte);
 
 let variable: any;
 
-variable = 10; variable peut contenir un nombre
-console.log(variable);
-variable = "Bonjour"; mais aussi une chaîne de caractères
-console.log(variable);
-variable = true; voir même une valeur booléenne... en gros c'est un fourre tout lol
-console.log(variable);
+Répond positivement à tous les types possibles.
 
 Comment typer le retour d'une fonction ainsi que le type de ses paramètres ?
 
@@ -49,7 +43,7 @@ function addition(a: number, b: number): number {
   return a + b;
 }
 console.log(addition(5,10));
-Typage des paramèt+-+res de la fonction :
+Typage des paramètres de la fonction :
 function afficherMessage(nom: string, age: number): void {
     la fonction afficherMessage prend deux paramètres : string et number. La fonction ne renvoie rien, d'où l'utilisation du type void.
   console.log(`Bonjour, je m'appelle ${nom} et j'ai ${age} ans.`);
@@ -60,10 +54,12 @@ function afficherMessage(nom: string, age: number): void {
 ## Level 2
 
 - Qu'est ce qu'une classe ? 
+
 Chaque objet doit être créé par une classe. Celle-ci peut être comparée à une notice de fabrication qui contient l’ensemble des informations nécessaires à la création d’un objet.
 En réalité, les classes sont juste des fonctions spéciales. Ainsi, les classes sont définies de la même façon que les fonctions : par déclaration, ou par expression. 
 
 - Qu'est ce qu'un constructeur de classe ? 
+
 Le constructeur est une méthode spéciale de la classe, utilisée pour créer des objets et initialiser les valeurs des propriétés (field).
 class Person {
     name: string;
@@ -117,7 +113,7 @@ console.log("tab est de type, " ,typeof tab);
 - Qu'est ce que l'héritage ? 
 
 L'héritage est un aspect de la programmation orienté objet, qui permet à un programme de créer une nouvelle classe à partir d'une classe existante. C'est un mécanisme qui acquiert les propriétés et les comportements d'une classe à partir d'une autre classe. En TypeScript, une classe peut donc hériter d’une autre via le mot-clé extends.
-Le mot clef "super" permet de rappeler les propriétés de la classe mère lors de la création d'une classe dérivée. -->
+Le mot clef "super" permet de rappeler les propriétés de la classe mère lors de la création d'une classe dérivée. 
 
 class Person {
     name: string;
@@ -137,7 +133,7 @@ class Person {
 class Joueur extends Person {
   console: string;
   constructor(n: string, g: string, c: string, d: string){
-    super (n, g,c);
+    super (n, g, c);
     this.console = d;
   }
 }
