@@ -112,11 +112,11 @@ const sword = new Weapon("sword", 20);
 const axe = new Weapon("axe", 15);
 const spear = new Weapon("spear", 30);
 
-const sangolu = new Hero("Sangolu", 500, 1500);
+const sangolu = new Hero("Sangolu", 550, 1500);
 const cogema = new Hero("Cogema", 600, 1200);
 const britneySpear = new HeroSpear("BritneySpear", 5, 100, spear);
 const ajax = new HeroAxe("Ajax", 25, 100, axe);
-const handSword = new HeroSword("handSword", 20, 100, sword);
+const jonSword = new HeroSword("JonSword", 20, 100, sword);
 
 //**************************************************** */
 
@@ -127,12 +127,11 @@ const buttonFight = document.getElementById("button2") as HTMLButtonElement;
 
 const choix1 = document.getElementById("choix1") as HTMLSelectElement;
 const choix2 = document.getElementById("choix2") as HTMLSelectElement;
-console.log(choix1.value);
+// console.log(choix1.value);
 
 function getHeroFromChoice(choice: string): Hero {
   switch (choice) {
     case "sangolu":
-      console.log("sangolu");
       return sangolu;
     case "cogema":
       return cogema;
@@ -140,8 +139,8 @@ function getHeroFromChoice(choice: string): Hero {
       return britneySpear;
     case "ajax":
       return ajax;
-    case "handSword":
-      return handSword;
+    case "jonSword":
+      return jonSword;
     default:
       throw new Error("Héros non valide");
   }
@@ -165,12 +164,16 @@ function letsGetRadisToRumble(fighter1: Hero, fighter2: Hero) {
   while (fighter1.isAlive() && fighter2.isAlive()) {
     fighter1.attack(fighter2);
     fighter2.attack(fighter1);
-    if (fighter1.getLife() <= 0 && fighter2.getLife() <= 0) {
-      if (panneauInfo)
+    if (!fighter1.isAlive() && !fighter2.isAlive()) {
+      if (panneauInfo) {
+        console.log(fighter2);
+        console.log(fighter1);
+
         panneauInfo.innerHTML += `C'est un match nul bande de cadavres !!`;
+      }
     } else if (!fighter1.isAlive()) {
       if (panneauInfo)
-        if (fighter2.getName() == "Cogema") {          
+        if (fighter2.getName() == "Cogema") {
           panneauInfo.innerHTML += `C'est la fin du monde libre, ${fighter2.getName()} wins`;
         } else if (fighter2.getName() == "Sangolu") {
           panneauInfo.innerHTML += `KAMEHAMEHAMEHAAAAAAA !!!!, ${fighter2.getName()} wins`;

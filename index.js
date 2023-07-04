@@ -94,11 +94,11 @@ class HeroSpear extends Hero {
 const sword = new Weapon("sword", 20);
 const axe = new Weapon("axe", 15);
 const spear = new Weapon("spear", 30);
-const sangolu = new Hero("Sangolu", 500, 1500);
+const sangolu = new Hero("Sangolu", 550, 1500);
 const cogema = new Hero("Cogema", 600, 1200);
 const britneySpear = new HeroSpear("BritneySpear", 5, 100, spear);
 const ajax = new HeroAxe("Ajax", 25, 100, axe);
-const handSword = new HeroSword("handSword", 20, 100, sword);
+const jonSword = new HeroSword("JonSword", 20, 100, sword);
 //**************************************************** */
 const panneauInfo = document.getElementById("panneauInfo");
 const namePlayer1 = document.getElementById("nomJoueur1");
@@ -106,11 +106,10 @@ const namePlayer2 = document.getElementById("nomJoueur2");
 const buttonFight = document.getElementById("button2");
 const choix1 = document.getElementById("choix1");
 const choix2 = document.getElementById("choix2");
-console.log(choix1.value);
+// console.log(choix1.value);
 function getHeroFromChoice(choice) {
     switch (choice) {
         case "sangolu":
-            console.log("sangolu");
             return sangolu;
         case "cogema":
             return cogema;
@@ -118,8 +117,8 @@ function getHeroFromChoice(choice) {
             return britneySpear;
         case "ajax":
             return ajax;
-        case "handSword":
-            return handSword;
+        case "jonSword":
+            return jonSword;
         default:
             throw new Error("Héros non valide");
     }
@@ -138,9 +137,12 @@ function letsGetRadisToRumble(fighter1, fighter2) {
     while (fighter1.isAlive() && fighter2.isAlive()) {
         fighter1.attack(fighter2);
         fighter2.attack(fighter1);
-        if (fighter1.getLife() <= 0 && fighter2.getLife() <= 0) {
-            if (panneauInfo)
+        if (!fighter1.isAlive() && !fighter2.isAlive()) {
+            if (panneauInfo) {
+                console.log(fighter2);
+                console.log(fighter1);
                 panneauInfo.innerHTML += `C'est un match nul bande de cadavres !!`;
+            }
         }
         else if (!fighter1.isAlive()) {
             if (panneauInfo)
